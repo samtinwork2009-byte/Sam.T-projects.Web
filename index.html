@@ -192,11 +192,11 @@
             }
         }
 
-        /* 作品卡片 - 優化半透明效果 */
+        /* 作品卡片 - 低調風格優化 */
         .portfolio-card {
             border-radius: 18px;
             padding: 35px;
-            border: 1px solid rgba(64, 156, 255, 0.25);
+            border: 1px solid rgba(64, 156, 255, 0.2);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -204,14 +204,14 @@
             flex-direction: column;
             height: 100%;
             min-height: 450px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
             z-index: 1;
             background: linear-gradient(145deg, 
-                rgba(15, 22, 40, 0.75) 0%, 
-                rgba(20, 30, 55, 0.8) 100%);
+                rgba(15, 22, 40, 0.7) 0%, 
+                rgba(20, 30, 55, 0.75) 100%);
         }
 
-        /* 背景圖像層 - 優化透明度 */
+        /* 背景圖像層 - 提高透明度顯示 */
         .portfolio-card::before {
             content: '';
             position: absolute;
@@ -221,13 +221,13 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            opacity: 0.25; /* 增加透明度 */
+            opacity: 0.35; /* 提高透明度以增加圖像可見性 */
             z-index: -1;
             transition: opacity 0.5s ease;
-            filter: brightness(0.7) contrast(1.1) saturate(1.1);
+            filter: brightness(0.65) contrast(1.05) saturate(0.95);
         }
 
-        /* 深色覆蓋層 - 調整透明度 */
+        /* 深色覆蓋層 - 低調風格 */
         .portfolio-card::after {
             content: '';
             position: absolute;
@@ -236,19 +236,19 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(145deg, 
-                rgba(10, 15, 30, 0.65) 0%, 
-                rgba(15, 22, 45, 0.7) 100%);
+                rgba(10, 15, 30, 0.55) 0%, 
+                rgba(15, 22, 45, 0.6) 100%);
             z-index: -1;
         }
 
         .portfolio-card:hover::before {
-            opacity: 0.35; /* 懸停時增加 */
+            opacity: 0.45; /* 懸停時進一步增加透明度 */
         }
 
         .portfolio-card:hover {
-            transform: translateY(-12px);
-            border-color: rgba(64, 156, 255, 0.45);
-            box-shadow: 0 18px 35px rgba(41, 103, 255, 0.3);
+            transform: translateY(-10px);
+            border-color: rgba(64, 156, 255, 0.35);
+            box-shadow: 0 15px 30px rgba(41, 103, 255, 0.2);
         }
 
         .card-content {
@@ -322,32 +322,40 @@
             line-height: 1.6;
         }
 
-        /* 卡片按鈕 */
+        /* 卡片按鈕 - 優化邊框與超連結功能 */
         .card-button {
-            display: inline-block;
+            display: block;
             padding: 16px 30px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
-            color: white;
+            background: rgba(43, 108, 255, 0.15);
+            color: var(--primary-light);
             text-decoration: none;
             border-radius: 12px;
             font-weight: 600;
             text-align: center;
             transition: all 0.3s ease;
-            border: none;
+            border: 2px solid rgba(64, 156, 255, 0.35);
             cursor: pointer;
             width: 100%;
             letter-spacing: 1px;
             font-size: 1.1rem;
             margin-top: auto;
-            box-shadow: 0 6px 15px rgba(41, 103, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(41, 103, 255, 0.15);
             position: relative;
             z-index: 3;
+            box-sizing: border-box;
         }
 
         .card-button:hover {
-            background: linear-gradient(90deg, var(--primary-light), var(--secondary));
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(41, 103, 255, 0.4);
+            background: rgba(43, 108, 255, 0.25);
+            color: var(--secondary);
+            border-color: rgba(64, 156, 255, 0.55);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(41, 103, 255, 0.25);
+        }
+
+        .card-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(41, 103, 255, 0.2);
         }
 
         /* 頁腳版權聲明 */
@@ -500,13 +508,13 @@
         <!-- 開發統計 -->
         <section class="stats-container">
             <div class="stat-box">
-                <div class="stat-number">9</div>
+                <div class="stat-number">10</div>
                 <div class="stat-label">總開發網頁</div>
                 <div class="stat-note">精心設計的完整項目集合</div>
             </div>
             
             <div class="stat-box">
-                <div class="stat-number">9</div>
+                <div class="stat-number">10</div>
                 <div class="stat-label">已完成開發</div>
                 <div class="stat-note">所有項目均已上線並可訪問</div>
             </div>
@@ -520,6 +528,34 @@
         
         <!-- 作品集網格 -->
         <main class="portfolio-grid">
+            <!-- 人工智能AI開發及訓練模擬平台 -->
+            <div class="portfolio-card card-0">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <span class="card-status">已完成開發</span>
+                    </div>
+                    
+                    <h3 class="card-title">人工智能AI開發及訓練模擬平台</h3>
+                    
+                    <p class="card-description">
+                        專業級人工智能開發與訓練模擬平台，提供完整的AI模型開發流程體驗。平台支援多種機器學習算法、神經網絡架構設計與模型訓練，
+                        用戶可以學習數據預處理、特徵工程、模型優化等核心技能，適合AI初學者與從業人員深入理解人工智能技術。
+                    </p>
+                    
+                    <div class="card-note">
+                        備註：平台提供實時訓練監控、模型評估與性能分析工具，支援多種數據集導入與自定義模型構建。
+                        包含詳細的算法解釋與最佳實踐指南，適合進行AI技能提升與項目實踐。
+                    </div>
+                    
+                    <a href="https://ai-training-online.vercel.app/" target="_blank" class="card-button">
+                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+            </div>
+            
             <!-- 播客與多媒體製作模擬平台 -->
             <div class="portfolio-card card-1">
                 <div class="card-content">
@@ -682,7 +718,7 @@
                         提供詳細的執行計劃分析與性能優化建議。
                     </div>
                     
-                    <a href="https://data-base-simulator.vercel.app/" target="_blank" class="card-button">
+                    <a href="https://database-simulator.vercel.app/" target="_blank" class="card-button">
                         訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
                     </a>
                 </div>
@@ -786,6 +822,10 @@
 
     <style>
         /* 為每個卡片設置不同的背景圖像 - 現在更加明顯 */
+        .card-0::before { 
+            background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 25%;
+        }
         .card-1::before { 
             background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
             background-position: center 30%;
