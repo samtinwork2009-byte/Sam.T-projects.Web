@@ -192,7 +192,7 @@
             }
         }
 
-        /* 作品卡片 - 低調風格優化 */
+        /* 作品卡片 - 增強背景圖像顯示 */
         .portfolio-card {
             border-radius: 18px;
             padding: 35px;
@@ -211,7 +211,7 @@
                 rgba(20, 30, 55, 0.75) 100%);
         }
 
-        /* 背景圖像層 - 提高透明度顯示 */
+        /* 背景圖像層 - 顯著提高透明度以增強顯示 */
         .portfolio-card::before {
             content: '';
             position: absolute;
@@ -221,13 +221,14 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            opacity: 0.35; /* 提高透明度以增加圖像可見性 */
+            opacity: 0.4; /* 顯著提高透明度以增強圖像可見性 */
             z-index: -1;
             transition: opacity 0.5s ease;
-            filter: brightness(0.65) contrast(1.05) saturate(0.95);
+            filter: brightness(0.7) contrast(1.1) saturate(1);
+            background-blend-mode: overlay;
         }
 
-        /* 深色覆蓋層 - 低調風格 */
+        /* 優化深色覆蓋層 - 降低不透明度以更好地顯示背景圖像 */
         .portfolio-card::after {
             content: '';
             position: absolute;
@@ -236,19 +237,20 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(145deg, 
-                rgba(10, 15, 30, 0.55) 0%, 
-                rgba(15, 22, 45, 0.6) 100%);
+                rgba(10, 15, 30, 0.45) 0%, 
+                rgba(15, 22, 45, 0.5) 100%);
             z-index: -1;
         }
 
         .portfolio-card:hover::before {
-            opacity: 0.45; /* 懸停時進一步增加透明度 */
+            opacity: 0.5; /* 懸停時進一步增加透明度 */
+            filter: brightness(0.75) contrast(1.15) saturate(1.1);
         }
 
         .portfolio-card:hover {
             transform: translateY(-10px);
             border-color: rgba(64, 156, 255, 0.35);
-            box-shadow: 0 15px 30px rgba(41, 103, 255, 0.2);
+            box-shadow: 0 15px 30px rgba(41, 103, 255, 0.25);
         }
 
         .card-content {
@@ -299,7 +301,7 @@
             margin-bottom: 20px;
             color: var(--light);
             line-height: 1.3;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
         }
 
         .card-description {
@@ -308,7 +310,7 @@
             margin-bottom: 25px;
             line-height: 1.7;
             flex-grow: 1;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
         }
 
         .card-note {
@@ -320,9 +322,10 @@
             margin-bottom: 30px;
             border-left: 4px solid var(--primary);
             line-height: 1.6;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
 
-        /* 卡片按鈕 - 優化邊框與超連結功能 */
+        /* 卡片按鈕 */
         .card-button {
             display: block;
             padding: 16px 30px;
@@ -441,6 +444,10 @@
             .card-description {
                 font-size: 1.05rem;
             }
+            
+            .portfolio-card::before {
+                opacity: 0.35; /* 移動端適當降低透明度 */
+            }
         }
 
         @media (max-width: 480px) {
@@ -500,7 +507,7 @@
             <h1 class="main-title">Sam.T 個人作品集</h1>
             
             <p class="intro">
-                這是Sam.T開發及創作的所有作品大集合，涵蓋多媒體製作、網絡安全、編程學習、人工智能等多個專業領域。
+                這是Sam.T開發及創作的所有作品大集合，涵蓋多媒體製作、網絡安全、編程學習、人工智能、文化歷史及娛樂等多個專業領域。
                 每個作品均為精心設計的模擬平台或實用工具，旨在提供真實的學習環境與互動體驗，展現專業的開發能力與創新思維。
             </p>
         </header>
@@ -508,13 +515,13 @@
         <!-- 開發統計 -->
         <section class="stats-container">
             <div class="stat-box">
-                <div class="stat-number">10</div>
+                <div class="stat-number">12</div>
                 <div class="stat-label">總開發網頁</div>
                 <div class="stat-note">精心設計的完整項目集合</div>
             </div>
             
             <div class="stat-box">
-                <div class="stat-number">10</div>
+                <div class="stat-number">12</div>
                 <div class="stat-label">已完成開發</div>
                 <div class="stat-note">所有項目均已上線並可訪問</div>
             </div>
@@ -806,6 +813,62 @@
                     </a>
                 </div>
             </div>
+            
+            <!-- 新增：香港昔日懷舊歷史文化模擬平台 -->
+            <div class="portfolio-card card-10">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <span class="card-status">已完成開發</span>
+                    </div>
+                    
+                    <h3 class="card-title">香港昔日懷舊歷史文化模擬平台</h3>
+                    
+                    <p class="card-description">
+                        沉浸式香港歷史文化體驗平台，重現香港昔日風貌與懷舊場景。平台涵蓋不同年代的香港生活場景、
+                        歷史建築、文化活動與社會變遷，通過互動式體驗讓用戶了解香港豐富的歷史與文化遺產。
+                    </p>
+                    
+                    <div class="card-note">
+                        備註：包含時間線導覽、歷史場景重現、文化活動模擬等多種互動元素。
+                        適合對香港歷史文化有興趣的用戶進行探索與學習。
+                    </div>
+                    
+                    <a href="https://nostalgic-hong-kong.vercel.app/" target="_blank" class="card-button">
+                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 新增：澳門豪華博彩娛樂模擬遊戲 -->
+            <div class="portfolio-card card-11">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-dice"></i>
+                        </div>
+                        <span class="card-status">已完成開發</span>
+                    </div>
+                    
+                    <h3 class="card-title">澳門豪華博彩娛樂模擬遊戲</h3>
+                    
+                    <p class="card-description">
+                        模擬澳門豪華娛樂場體驗的遊戲平台，提供多種經典博彩遊戲模擬體驗。平台重現澳門娛樂場的豪華氛圍，
+                        包含多種遊戲模式與虛擬貨幣系統，讓用戶在安全環境中體驗娛樂場遊戲的樂趣。
+                    </p>
+                    
+                    <div class="card-note">
+                        備註：純屬娛樂模擬，不涉及真實金錢交易。包含多種遊戲選擇與虛擬獎勵系統。
+                        適合對娛樂場遊戲文化有興趣的用戶進行體驗。
+                    </p>
+                    
+                    <a href="https://gambling-in-macauonline.vercel.app/" target="_blank" class="card-button">
+                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                    </a>
+                </div>
+            </div>
         </main>
         
         <!-- 頁腳版權聲明 -->
@@ -821,7 +884,7 @@
     </div>
 
     <style>
-        /* 為每個卡片設置不同的背景圖像 - 現在更加明顯 */
+        /* 為每個卡片設置不同的背景圖像 - 顯著增強顯示效果 */
         .card-0::before { 
             background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
             background-position: center 25%;
@@ -862,12 +925,21 @@
             background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
             background-position: center 30%;
         }
+        /* 新增的兩個項目背景圖像 */
+        .card-10::before { 
+            background-image: url('https://images.unsplash.com/photo-1591533985780-5450e5aa1be8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 40%;
+        }
+        .card-11::before { 
+            background-image: url('https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 35%;
+        }
     </style>
 
     <script>
         // 確保背景圖像加載
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('背景圖像已加載，透明度設定為0.25（適中可見）');
+            console.log('背景圖像已加載，透明度設定為0.4（明顯可見）');
             
             // 優化卡片懸停效果
             const cards = document.querySelectorAll('.portfolio-card');
@@ -880,6 +952,16 @@
                     this.style.transform = 'translateY(0) scale(1)';
                 });
             });
+            
+            // 更新統計信息
+            const totalProjects = document.querySelectorAll('.portfolio-card').length;
+            const totalStat = document.querySelector('.stat-box:first-child .stat-number');
+            const completedStat = document.querySelector('.stat-box:nth-child(2) .stat-number');
+            
+            if (totalStat && completedStat) {
+                totalStat.textContent = totalProjects;
+                completedStat.textContent = totalProjects;
+            }
         });
     </script>
 </body>
