@@ -18,6 +18,7 @@
             --light: #e0e0ff;
             --gray: #8ca0ff;
             --success: #48bb78;
+            --warning: #ff9f43;
             --font-title: 'Orbitron', sans-serif;
             --font-body: 'Noto Sans TC', sans-serif;
         }
@@ -294,6 +295,12 @@
             border: 1px solid rgba(72, 187, 120, 0.4);
         }
 
+        .card-status.updating {
+            background: rgba(255, 159, 67, 0.25);
+            color: var(--warning);
+            border-color: rgba(255, 159, 67, 0.4);
+        }
+
         /* 卡片主體 */
         .card-title {
             font-family: var(--font-title);
@@ -325,40 +332,74 @@
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
 
-        /* 卡片按鈕 */
+        /* 卡片按鈕 - 提升點擊性和快速性 */
         .card-button {
             display: block;
-            padding: 16px 30px;
-            background: rgba(43, 108, 255, 0.15);
+            padding: 18px 30px;
+            background: rgba(43, 108, 255, 0.25);
             color: var(--primary-light);
             text-decoration: none;
             border-radius: 12px;
-            font-weight: 600;
+            font-weight: 700;
             text-align: center;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(64, 156, 255, 0.35);
+            transition: all 0.2s ease;
+            border: 2px solid rgba(64, 156, 255, 0.45);
             cursor: pointer;
             width: 100%;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             font-size: 1.1rem;
             margin-top: auto;
-            box-shadow: 0 4px 12px rgba(41, 103, 255, 0.15);
+            box-shadow: 0 6px 15px rgba(41, 103, 255, 0.25);
             position: relative;
             z-index: 3;
             box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .card-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
         }
 
         .card-button:hover {
-            background: rgba(43, 108, 255, 0.25);
+            background: rgba(43, 108, 255, 0.35);
             color: var(--secondary);
-            border-color: rgba(64, 156, 255, 0.55);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 18px rgba(41, 103, 255, 0.25);
+            border-color: rgba(64, 156, 255, 0.65);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(41, 103, 255, 0.35);
+        }
+
+        .card-button:hover::before {
+            left: 100%;
         }
 
         .card-button:active {
-            transform: translateY(-1px);
-            box-shadow: 0 3px 10px rgba(41, 103, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(41, 103, 255, 0.3);
+            transition: all 0.1s ease;
+        }
+
+        .card-button i {
+            margin-left: 10px;
+            font-size: 0.9em;
+        }
+
+        /* 已完成開發的額外說明 */
+        .completed-note {
+            font-size: 0.9rem;
+            color: #b0ffb0;
+            padding: 10px 15px;
+            background: rgba(72, 187, 120, 0.15);
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 3px solid var(--success);
+            font-style: italic;
         }
 
         /* 頁腳版權聲明 */
@@ -445,6 +486,10 @@
                 font-size: 1.05rem;
             }
             
+            .card-button {
+                padding: 16px 25px;
+            }
+            
             .portfolio-card::before {
                 opacity: 0.35; /* 移動端適當降低透明度 */
             }
@@ -486,7 +531,8 @@
             }
             
             .card-button {
-                padding: 14px 25px;
+                padding: 15px 20px;
+                font-size: 1rem;
             }
         }
     </style>
@@ -515,34 +561,118 @@
         <!-- 開發統計 -->
         <section class="stats-container">
             <div class="stat-box">
-                <div class="stat-number">12</div>
+                <div class="stat-number">13</div>
                 <div class="stat-label">總開發網頁</div>
                 <div class="stat-note">精心設計的完整項目集合</div>
             </div>
             
             <div class="stat-box">
-                <div class="stat-number">12</div>
+                <div class="stat-number">9</div>
                 <div class="stat-label">已完成開發</div>
-                <div class="stat-note">所有項目均已上線並可訪問</div>
+                <div class="stat-note">穩定運行並持續維護</div>
             </div>
             
             <div class="stat-box">
-                <div class="stat-number">3</div>
-                <div class="stat-label">設計開發中</div>
+                <div class="stat-number">4</div>
+                <div class="stat-label">未完成開發</div>
                 <div class="stat-note">開發設計進行中項目</div>
             </div>
         </section>
         
         <!-- 作品集網格 -->
         <main class="portfolio-grid">
-            <!-- 人工智能AI開發及訓練模擬平台 -->
+            <!-- 後端編程模擬學習平台 -->
             <div class="portfolio-card card-0">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <span class="card-status updating">未完成開發及會持續更新</span>
+                    </div>
+                    
+                    <h3 class="card-title">後端編程模擬學習平台</h3>
+                    
+                    <p class="card-description">
+                        專注於後端開發技術的模擬學習平台，涵蓋伺服器架設、API設計、數據庫連接、性能優化等核心後端技能。
+                        提供多種後端語言環境，包括Node.js、Python、Java等，讓用戶能夠在安全環境中練習真實的後端開發流程。
+                    </p>
+                    
+                    <div class="card-note">
+                        備註：平台提供模擬伺服器環境、API測試工具、數據庫管理界面及性能監控儀表板。
+                        包含從基礎到進階的後端開發教學內容，適合想要深入學習後端技術的開發者。
+                    </div>
+                    
+                    <a href="https://programming-backend-online.vercel.app/" target="_blank" class="card-button">
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 香港昔日懷舊歷史文化模擬平台 -->
+            <div class="portfolio-card card-1">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <span class="card-status updating">未完成開發及會持續更新</span>
+                    </div>
+                    
+                    <h3 class="card-title">香港昔日懷舊歷史文化模擬平台</h3>
+                    
+                    <p class="card-description">
+                        沉浸式香港歷史文化體驗平台，重現香港昔日風貌與懷舊場景。平台涵蓋不同年代的香港生活場景、
+                        歷史建築、文化活動與社會變遷，通過互動式體驗讓用戶了解香港豐富的歷史與文化遺產。
+                    </p>
+                    
+                    <div class="card-note">
+                        備註：包含時間線導覽、歷史場景重現、文化活動模擬等多種互動元素。
+                        適合對香港歷史文化有興趣的用戶進行探索與學習。
+                    </div>
+                    
+                    <a href="https://nostalgic-hong-kong.vercel.app/" target="_blank" class="card-button">
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 澳門豪華博彩娛樂模擬遊戲 -->
+            <div class="portfolio-card card-2">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-dice"></i>
+                        </div>
+                        <span class="card-status updating">未完成開發及會持續更新</span>
+                    </div>
+                    
+                    <h3 class="card-title">澳門豪華博彩娛樂模擬遊戲</h3>
+                    
+                    <p class="card-description">
+                        模擬澳門豪華娛樂場體驗的遊戲平台，提供多種經典博彩遊戲模擬體驗。平台重現澳門娛樂場的豪華氛圍，
+                        包含多種遊戲模式與虛擬貨幣系統，讓用戶在安全環境中體驗娛樂場遊戲的樂趣。
+                    </p>
+                    
+                    <div class="card-note">
+                        備註：純屬娛樂模擬，不涉及真實金錢交易。包含多種遊戲選擇與虛擬獎勵系統。
+                        適合對娛樂場遊戲文化有興趣的用戶進行體驗。
+                    </div>
+                    
+                    <a href="https://gambling-in-macauonline.vercel.app/" target="_blank" class="card-button">
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 人工智能AI開發及訓練模擬平台 -->
+            <div class="portfolio-card card-3">
                 <div class="card-content">
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-brain"></i>
                         </div>
-                        <span class="card-status">已完成開發</span>
+                        <span class="card-status updating">未完成開發及會持續更新</span>
                     </div>
                     
                     <h3 class="card-title">人工智能AI開發及訓練模擬平台</h3>
@@ -557,20 +687,24 @@
                         包含詳細的算法解釋與最佳實踐指南，適合進行AI技能提升與項目實踐。
                     </div>
                     
+                    <div class="completed-note">
+                        會持續更新及維護平台的更多功能，包括新的AI算法和訓練工具。
+                    </div>
+                    
                     <a href="https://ai-training-online.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
             
             <!-- 播客與多媒體製作模擬平台 -->
-            <div class="portfolio-card card-1">
+            <div class="portfolio-card card-4">
                 <div class="card-content">
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-podcast"></i>
                         </div>
-                        <span class="card-status">已完成開發</span>
+                        <span class="card-status updating">未完成開發及會持續更新</span>
                     </div>
                     
                     <h3 class="card-title">播客Broadcast & 多媒體製作模擬平台</h3>
@@ -585,14 +719,18 @@
                         適合對播客製作、音視頻編輯有興趣的用戶進行學習與實踐。
                     </div>
                     
+                    <div class="completed-note">
+                        會持續更新及維護平台的更多功能，包括新的媒體格式和編輯工具。
+                    </div>
+                    
                     <a href="https://broadcast-mediasimulator.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
             
             <!-- 黑客 vs 防禦者攻擊模擬器 -->
-            <div class="portfolio-card card-2">
+            <div class="portfolio-card card-5">
                 <div class="card-content">
                     <div class="card-header">
                         <div class="card-icon">
@@ -613,14 +751,18 @@
                         適合網絡安全初學者與從業人員進行實戰練習。
                     </div>
                     
+                    <div class="completed-note">
+                        會持續更新及維護平台的更多功能，包括新的攻擊手法和防禦策略。
+                    </div>
+                    
                     <a href="https://hacked-security-online.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
             
             <!-- 網絡接駁及相關Network模擬器 -->
-            <div class="portfolio-card card-3">
+            <div class="portfolio-card card-6">
                 <div class="card-content">
                     <div class="card-header">
                         <div class="card-icon">
@@ -641,14 +783,18 @@
                         適合網絡工程初學者與IT從業人員學習網絡基礎知識。
                     </div>
                     
+                    <div class="completed-note">
+                        會持續更新及維護平台的更多功能，包括新的網絡協議和模擬場景。
+                    </div>
+                    
                     <a href="https://network-internet-online.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
             
             <!-- 電腦命令執行模擬器 -->
-            <div class="portfolio-card card-4">
+            <div class="portfolio-card card-7">
                 <div class="card-content">
                     <div class="card-header">
                         <div class="card-icon">
@@ -669,14 +815,18 @@
                         提供Windows PowerShell與Linux Bash兩種環境的切換。
                     </div>
                     
+                    <div class="completed-note">
+                        會持續更新及維護平台的更多功能，包括新的命令和系統模擬。
+                    </div>
+                    
                     <a href="https://computer-simulator.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
             
             <!-- 編程語言前端後端及API -->
-            <div class="portfolio-card card-5">
+            <div class="portfolio-card card-8">
                 <div class="card-content">
                     <div class="card-header">
                         <div class="card-icon">
@@ -697,14 +847,18 @@
                         適合全棧開發初學者進行編程練習與項目開發。
                     </div>
                     
+                    <div class="completed-note">
+                        會持續更新及維護平台的更多功能，包括新的編程語言和開發工具。
+                    </div>
+                    
                     <a href="https://learn-code-simulator.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
             
             <!-- 資料庫Database模擬器 -->
-            <div class="portfolio-card card-6">
+            <div class="portfolio-card card-9">
                 <div class="card-content">
                     <div class="card-header">
                         <div class="card-icon">
@@ -725,14 +879,18 @@
                         提供詳細的執行計劃分析與性能優化建議。
                     </div>
                     
+                    <div class="completed-note">
+                        會持續更新及維護平台的更多功能，包括新的數據庫類型和查詢工具。
+                    </div>
+                    
                     <a href="https://data-base-simulator.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
             
             <!-- 真 • 香港達人挑戰及問答遊戲 -->
-            <div class="portfolio-card card-7">
+            <div class="portfolio-card card-10">
                 <div class="card-content">
                     <div class="card-header">
                         <div class="card-icon">
@@ -753,14 +911,18 @@
                         題庫持續更新，確保內容的新鮮度與挑戰性。
                     </div>
                     
+                    <div class="completed-note">
+                        會持續更新及維護平台的更多功能，包括新的題目類別和遊戲模式。
+                    </div>
+                    
                     <a href="https://hong-kong-quiz-game.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
             
             <!-- AI.Sam 智能助理聊天機械人 -->
-            <div class="portfolio-card card-8">
+            <div class="portfolio-card card-11">
                 <div class="card-content">
                     <div class="card-header">
                         <div class="card-icon">
@@ -781,14 +943,18 @@
                         提供對話歷史保存與個性化設定功能，可根據用戶偏好調整回應風格。
                     </div>
                     
+                    <div class="completed-note">
+                        會持續更新及維護平台的更多功能，包括新的AI模型和對話工具。
+                    </div>
+                    
                     <a href="https://poe.com/AISam.GPT_Official" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
             
             <!-- Design Thinking AI 設計思維智能助理 -->
-            <div class="portfolio-card card-9">
+            <div class="portfolio-card card-12">
                 <div class="card-content">
                     <div class="card-header">
                         <div class="card-icon">
@@ -808,64 +974,12 @@
                         備註：需登入Poe帳戶使用，平台的AI模型採用了 Social Innovate AI Bot
                     </div>
                     
+                    <div class="completed-note">
+                        會持續更新及維護平台的更多功能，包括新的設計思維工具和AI模型。
+                    </div>
+                    
                     <a href="https://poe.com/Design_Think_AI" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- 新增：香港昔日懷舊歷史文化模擬平台 -->
-            <div class="portfolio-card card-10">
-                <div class="card-content">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-landmark"></i>
-                        </div>
-                        <span class="card-status">未完成開發</span>
-                    </div>
-                    
-                    <h3 class="card-title">香港昔日懷舊歷史文化模擬平台</h3>
-                    
-                    <p class="card-description">
-                        沉浸式香港歷史文化體驗平台，重現香港昔日風貌與懷舊場景。平台涵蓋不同年代的香港生活場景、
-                        歷史建築、文化活動與社會變遷，通過互動式體驗讓用戶了解香港豐富的歷史與文化遺產。
-                    </p>
-                    
-                    <div class="card-note">
-                        備註：包含時間線導覽、歷史場景重現、文化活動模擬等多種互動元素。
-                        適合對香港歷史文化有興趣的用戶進行探索與學習。
-                    </div>
-                    
-                    <a href="https://nostalgic-hong-kong.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- 新增：澳門豪華博彩娛樂模擬遊戲 -->
-            <div class="portfolio-card card-11">
-                <div class="card-content">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-dice"></i>
-                        </div>
-                        <span class="card-status">未完成開發</span>
-                    </div>
-                    
-                    <h3 class="card-title">澳門豪華博彩娛樂模擬遊戲</h3>
-                    
-                    <p class="card-description">
-                        模擬澳門豪華娛樂場體驗的遊戲平台，提供多種經典博彩遊戲模擬體驗。平台重現澳門娛樂場的豪華氛圍，
-                        包含多種遊戲模式與虛擬貨幣系統，讓用戶在安全環境中體驗娛樂場遊戲的樂趣。
-                    </p>
-                    
-                    <div class="card-note">
-                        備註：純屬娛樂模擬，不涉及真實金錢交易。包含多種遊戲選擇與虛擬獎勵系統。
-                        適合對娛樂場遊戲文化有興趣的用戶進行體驗。
-                    </p>
-                    
-                    <a href="https://gambling-in-macauonline.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt" style="margin-left: 8px;"></i>
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
@@ -884,55 +998,59 @@
     </div>
 
     <style>
-        /* 為每個卡片設置不同的背景圖像 - 顯著增強顯示效果 */
+        /* 為每個卡片設置不同的背景圖像 - 根據主題選擇相關圖片 */
         .card-0::before { 
-            background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
-            background-position: center 25%;
+            background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 30%;
         }
         .card-1::before { 
-            background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
-            background-position: center 30%;
-        }
-        .card-2::before { 
-            background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
-            background-position: center 40%;
-        }
-        .card-3::before { 
-            background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
-            background-position: center 35%;
-        }
-        .card-4::before { 
-            background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
-            background-position: center 30%;
-        }
-        .card-5::before { 
-            background-image: url('https://images.unsplash.com/photo-1619410283995-43d9134e7656?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
-            background-position: center 25%;
-        }
-        .card-6::before { 
-            background-image: url('https://images.unsplash.com/photo-1548092372-0d1bd4088a6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
-            background-position: center 30%;
-        }
-        .card-7::before { 
-            background-image: url('https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
-            background-position: center 35%;
-        }
-        .card-8::before { 
-            background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
-            background-position: center 25%;
-        }
-        .card-9::before { 
-            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
-            background-position: center 30%;
-        }
-        /* 新增的兩個項目背景圖像 */
-        .card-10::before { 
             background-image: url('https://images.unsplash.com/photo-1591533985780-5450e5aa1be8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
             background-position: center 40%;
         }
-        .card-11::before { 
+        .card-2::before { 
             background-image: url('https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
             background-position: center 35%;
+        }
+        .card-3::before { 
+            background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 25%;
+        }
+        .card-4::before { 
+            background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 30%;
+        }
+        /* 黑客攻擊模擬器 - 使用戴帽黑客風格圖片 */
+        .card-5::before { 
+            background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 40%;
+        }
+        .card-6::before { 
+            background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 35%;
+        }
+        .card-7::before { 
+            background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 30%;
+        }
+        .card-8::before { 
+            background-image: url('https://images.unsplash.com/photo-1619410283995-43d9134e7656?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 25%;
+        }
+        .card-9::before { 
+            background-image: url('https://images.unsplash.com/photo-1548092372-0d1bd4088a6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 30%;
+        }
+        .card-10::before { 
+            background-image: url('https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 35%;
+        }
+        .card-11::before { 
+            background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 25%;
+        }
+        .card-12::before { 
+            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 30%;
         }
     </style>
 
@@ -953,15 +1071,37 @@
                 });
             });
             
+            // 計算已完成和未完成的項目數量
+            const totalCards = document.querySelectorAll('.portfolio-card').length;
+            const completedCards = document.querySelectorAll('.portfolio-card .card-status:not(.updating)').length;
+            const updatingCards = document.querySelectorAll('.portfolio-card .card-status.updating').length;
+            
             // 更新統計信息
-            const totalProjects = document.querySelectorAll('.portfolio-card').length;
             const totalStat = document.querySelector('.stat-box:first-child .stat-number');
             const completedStat = document.querySelector('.stat-box:nth-child(2) .stat-number');
+            const updatingStat = document.querySelector('.stat-box:nth-child(3) .stat-number');
             
-            if (totalStat && completedStat) {
-                totalStat.textContent = totalProjects;
-                completedStat.textContent = totalProjects;
+            if (totalStat && completedStat && updatingStat) {
+                totalStat.textContent = totalCards;
+                completedStat.textContent = completedCards;
+                updatingStat.textContent = updatingCards;
             }
+            
+            // 提高按鈕點擊性 - 添加點擊反饋
+            const buttons = document.querySelectorAll('.card-button');
+            buttons.forEach(button => {
+                button.addEventListener('mousedown', function() {
+                    this.style.transform = 'translateY(-1px) scale(0.98)';
+                });
+                
+                button.addEventListener('mouseup', function() {
+                    this.style.transform = 'translateY(-4px)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
         });
     </script>
 </body>
