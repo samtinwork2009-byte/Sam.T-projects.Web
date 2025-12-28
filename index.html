@@ -171,17 +171,17 @@
             margin-top: 10px;
         }
 
-        /* 作品集網格 */
+        /* 作品集網格 - 桌面版一行三個 */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
             margin-bottom: 70px;
         }
 
         @media (max-width: 1100px) {
             .portfolio-grid {
-                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
                 gap: 35px;
             }
         }
@@ -193,11 +193,10 @@
             }
         }
 
-        /* 作品卡片 - 增強背景圖像顯示 */
+        /* 作品卡片 - 增強外框漸變效果 */
         .portfolio-card {
             border-radius: 18px;
             padding: 35px;
-            border: 1px solid rgba(64, 156, 255, 0.2);
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -205,11 +204,22 @@
             flex-direction: column;
             height: 100%;
             min-height: 450px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
             z-index: 1;
             background: linear-gradient(145deg, 
                 rgba(15, 22, 40, 0.7) 0%, 
                 rgba(20, 30, 55, 0.75) 100%);
+            
+            /* 新增外框漸變效果 - 低調現代科技感 */
+            border: double 2px transparent;
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            background-image: 
+                linear-gradient(145deg, rgba(15, 22, 40, 0.7) 0%, rgba(20, 30, 55, 0.75) 100%),
+                linear-gradient(145deg, rgba(43, 108, 255, 0.2), rgba(0, 212, 255, 0.1), rgba(43, 108, 255, 0.2));
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.25),
+                0 0 20px rgba(43, 108, 255, 0.05),
+                inset 0 0 20px rgba(0, 212, 255, 0.03);
         }
 
         /* 背景圖像層 - 顯著提高透明度以增強顯示 */
@@ -250,8 +260,13 @@
 
         .portfolio-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(64, 156, 255, 0.35);
-            box-shadow: 0 15px 30px rgba(41, 103, 255, 0.25);
+            background-image: 
+                linear-gradient(145deg, rgba(15, 22, 40, 0.7) 0%, rgba(20, 30, 55, 0.75) 100%),
+                linear-gradient(145deg, rgba(43, 108, 255, 0.3), rgba(0, 212, 255, 0.15), rgba(43, 108, 255, 0.3));
+            box-shadow: 
+                0 15px 30px rgba(41, 103, 255, 0.25),
+                0 0 30px rgba(43, 108, 255, 0.1),
+                inset 0 0 25px rgba(0, 212, 255, 0.05);
         }
 
         .card-content {
@@ -442,6 +457,12 @@
         }
 
         /* 響應式設計 */
+        @media (max-width: 1100px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .main-title {
                 font-size: 3rem;
@@ -464,6 +485,10 @@
             
             .stat-number {
                 font-size: 3rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
             }
             
             .portfolio-card {
@@ -553,15 +578,14 @@
             <h1 class="main-title">Sam.T 個人作品集</h1>
             
             <p class="intro">
-                這是Sam.T開發及創作的所有作品大集合，涵蓋多媒體製作、網絡安全、編程學習、人工智能、文化歷史及娛樂等多個專業領域。
-                每個作品均為精心設計的模擬平台或實用工具，旨在提供真實的學習環境與互動體驗，展現專業的開發能力與創新思維。
+                這是Sam.T的個人作品集，包含各個類別，例如IT科技等等... 每個作品均為精心開發及設計的網頁，所有的網頁及網址已確保是安全的狀態，會不定期持續加入更多作品或優化及更新現有的網站效率。
             </p>
         </header>
         
         <!-- 開發統計 -->
         <section class="stats-container">
             <div class="stat-box">
-                <div class="stat-number">13</div>
+                <div class="stat-number">16</div>
                 <div class="stat-label">總開發網頁</div>
                 <div class="stat-note">精心設計的完整項目集合</div>
             </div>
@@ -573,7 +597,7 @@
             </div>
             
             <div class="stat-box">
-                <div class="stat-number">4</div>
+                <div class="stat-number">7</div>
                 <div class="stat-label">未完成開發</div>
                 <div class="stat-note">開發設計進行中項目</div>
             </div>
@@ -581,6 +605,86 @@
         
         <!-- 作品集網格 -->
         <main class="portfolio-grid">
+            <!-- 香港時空記憶之旅-探索香港各文化特色猜謎遊戲 -->
+            <div class="portfolio-card card-14">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <span class="card-status updating">未完成開發</span>
+                    </div>
+                    
+                    <h3 class="card-title">香港時空記憶之旅-探索香港各文化特色猜謎遊戲</h3>
+                    
+                    <p class="card-description">
+                        沉浸式香港文化猜謎遊戲平台，帶領玩家穿越香港不同時期的文化場景。平台結合歷史知識與趣味猜謎，涵蓋香港建築、飲食、節慶、語言等多個文化層面，讓玩家在遊戲中學習香港豐富的文化遺產與歷史變遷。
+                    </p>
+                    
+                    <div class="card-note">
+                        備註：包含時間線探索模式、文化主題關卡、即時提示系統與積分排行榜。題目涵蓋香港從過去到現在的各種文化特色，適合對香港文化有興趣的玩家挑戰。
+                    </div>
+                    
+                    <a href="https://hong-kong-game-online-web.vercel.app/" target="_blank" class="card-button">
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 懷舊通訊裝置時光機-模擬器 -->
+            <div class="portfolio-card card-15">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <span class="card-status updating">未完成開發</span>
+                    </div>
+                    
+                    <h3 class="card-title">懷舊通訊裝置時光機-模擬器</h3>
+                    
+                    <p class="card-description">
+                        通訊科技歷史模擬平台，重現從古至今的各種通訊裝置。平台模擬不同時期的通訊工具，包括電報機、轉盤電話、傳呼機、早期手機等，讓用戶體驗通訊科技的發展歷程與操作方式。
+                    </p>
+                    
+                    <div class="card-note">
+                        備註：包含歷史時間線導覽、裝置操作模擬、技術原理講解與互動體驗區。適合對通訊科技發展史有興趣的用戶學習與探索。
+                    </div>
+                    
+                    <a href="https://telecom-device-simulator.vercel.app/" target="_blank" class="card-button">
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 手機系統越獄模擬器平台 -->
+            <div class="portfolio-card card-13">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <span class="card-status updating">未完成開發</span>
+                    </div>
+                    
+                    <h3 class="card-title">手機系統越獄模擬器平台</h3>
+                    
+                    <p class="card-description">
+                        手機系統越獄技術學習平台，提供iOS及Android系統的越獄技術模擬。平台詳細展示越獄原理、工具使用、系統修改及安全性評估，
+                        讓用戶在安全的模擬環境中學習越獄技術，了解系統底層運作與權限獲取方法，提升移動設備系統安全知識。
+                    </p>
+                    
+                    <div class="card-note">
+                        備註：平台包含多種越獄工具模擬、系統漏洞展示、權限提升實驗及安全加固教學。
+                        適合對移動設備系統安全、越獄技術有興趣的用戶學習與實踐。
+                    </div>
+                    
+                    <a href="https://jailbreak-phone.vercel.app/" target="_blank" class="card-button">
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
             <!-- 後端編程模擬學習平台 -->
             <div class="portfolio-card card-0">
                 <div class="card-content">
@@ -588,7 +692,7 @@
                         <div class="card-icon">
                             <i class="fas fa-server"></i>
                         </div>
-                        <span class="card-status updating">未完成開發及會持續更新</span>
+                        <span class="card-status updating">未完成開發</span>
                     </div>
                     
                     <h3 class="card-title">後端編程模擬學習平台</h3>
@@ -616,7 +720,7 @@
                         <div class="card-icon">
                             <i class="fas fa-landmark"></i>
                         </div>
-                        <span class="card-status updating">未完成開發及會持續更新</span>
+                        <span class="card-status updating">未完成開發</span>
                     </div>
                     
                     <h3 class="card-title">香港昔日懷舊歷史文化模擬平台</h3>
@@ -644,7 +748,7 @@
                         <div class="card-icon">
                             <i class="fas fa-dice"></i>
                         </div>
-                        <span class="card-status updating">未完成開發及會持續更新</span>
+                        <span class="card-status updating">未完成開發</span>
                     </div>
                     
                     <h3 class="card-title">澳門豪華博彩娛樂模擬遊戲</h3>
@@ -672,7 +776,7 @@
                         <div class="card-icon">
                             <i class="fas fa-brain"></i>
                         </div>
-                        <span class="card-status updating">未完成開發及會持續更新</span>
+                        <span class="card-status updating">未完成開發</span>
                     </div>
                     
                     <h3 class="card-title">人工智能AI開發及訓練模擬平台</h3>
@@ -685,10 +789,6 @@
                     <div class="card-note">
                         備註：平台提供實時訓練監控、模型評估與性能分析工具，支援多種數據集導入與自定義模型構建。
                         包含詳細的算法解釋與最佳實踐指南，適合進行AI技能提升與項目實踐。
-                    </div>
-                    
-                    <div class="completed-note">
-                        會持續更新及維護平台的更多功能，包括新的AI算法和訓練工具。
                     </div>
                     
                     <a href="https://ai-training-online.vercel.app/" target="_blank" class="card-button">
@@ -704,7 +804,7 @@
                         <div class="card-icon">
                             <i class="fas fa-podcast"></i>
                         </div>
-                        <span class="card-status updating">未完成開發及會持續更新</span>
+                        <span class="card-status updating">未完成開發</span>
                     </div>
                     
                     <h3 class="card-title">播客Broadcast & 多媒體製作模擬平台</h3>
@@ -717,10 +817,6 @@
                     <div class="card-note">
                         備註：平台提供多種媒體格式支援，包括MP3、MP4、WAV等，並內置專業級編輯工具與效果庫。
                         適合對播客製作、音視頻編輯有興趣的用戶進行學習與實踐。
-                    </div>
-                    
-                    <div class="completed-note">
-                        會持續更新及維護平台的更多功能，包括新的媒體格式和編輯工具。
                     </div>
                     
                     <a href="https://broadcast-mediasimulator.vercel.app/" target="_blank" class="card-button">
@@ -751,10 +847,6 @@
                         適合網絡安全初學者與從業人員進行實戰練習。
                     </div>
                     
-                    <div class="completed-note">
-                        會持續更新及維護平台的更多功能，包括新的攻擊手法和防禦策略。
-                    </div>
-                    
                     <a href="https://hacked-security-online.vercel.app/" target="_blank" class="card-button">
                         訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
@@ -781,10 +873,6 @@
                     <div class="card-note">
                         備註：支援LAN、WAN、VPN等多種網絡類型模擬，提供可視化的網絡流量監控與故障排查工具。
                         適合網絡工程初學者與IT從業人員學習網絡基礎知識。
-                    </div>
-                    
-                    <div class="completed-note">
-                        會持續更新及維護平台的更多功能，包括新的網絡協議和模擬場景。
                     </div>
                     
                     <a href="https://network-internet-online.vercel.app/" target="_blank" class="card-button">
@@ -815,10 +903,6 @@
                         提供Windows PowerShell與Linux Bash兩種環境的切換。
                     </div>
                     
-                    <div class="completed-note">
-                        會持續更新及維護平台的更多功能，包括新的命令和系統模擬。
-                    </div>
-                    
                     <a href="https://computer-simulator.vercel.app/" target="_blank" class="card-button">
                         訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
@@ -845,10 +929,6 @@
                     <div class="card-note">
                         備註：提供即時代碼執行與調試環境，包含RESTful API設計與測試工具，支援Git版本控制操作模擬。
                         適合全棧開發初學者進行編程練習與項目開發。
-                    </div>
-                    
-                    <div class="completed-note">
-                        會持續更新及維護平台的更多功能，包括新的編程語言和開發工具。
                     </div>
                     
                     <a href="https://learn-code-simulator.vercel.app/" target="_blank" class="card-button">
@@ -879,10 +959,6 @@
                         提供詳細的執行計劃分析與性能優化建議。
                     </div>
                     
-                    <div class="completed-note">
-                        會持續更新及維護平台的更多功能，包括新的數據庫類型和查詢工具。
-                    </div>
-                    
                     <a href="https://data-base-simulator.vercel.app/" target="_blank" class="card-button">
                         訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
@@ -909,10 +985,6 @@
                     <div class="card-note">
                         備註：平台登入統一預設為「admin2025」，包含計分系統、成就徽章與排行榜功能。
                         題庫持續更新，確保內容的新鮮度與挑戰性。
-                    </div>
-                    
-                    <div class="completed-note">
-                        會持續更新及維護平台的更多功能，包括新的題目類別和遊戲模式。
                     </div>
                     
                     <a href="https://hong-kong-quiz-game.vercel.app/" target="_blank" class="card-button">
@@ -943,10 +1015,6 @@
                         提供對話歷史保存與個性化設定功能，可根據用戶偏好調整回應風格。
                     </div>
                     
-                    <div class="completed-note">
-                        會持續更新及維護平台的更多功能，包括新的AI模型和對話工具。
-                    </div>
-                    
                     <a href="https://poe.com/AISam.GPT_Official" target="_blank" class="card-button">
                         訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
@@ -974,10 +1042,6 @@
                         備註：需登入Poe帳戶使用，平台的AI模型採用了 Social Innovate AI Bot
                     </div>
                     
-                    <div class="completed-note">
-                        會持續更新及維護平台的更多功能，包括新的設計思維工具和AI模型。
-                    </div>
-                    
                     <a href="https://poe.com/Design_Think_AI" target="_blank" class="card-button">
                         訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
@@ -987,18 +1051,29 @@
         
         <!-- 頁腳版權聲明 -->
         <footer class="footer">
-            <p class="copyright">© 2025 Create By <strong>【 Sam.T 】</strong></p>
-            <p class="rights">Copyright © 2025 Sam.T. All rights reserved.</p>
-            <p class="rights">版權所有© 2025 Sam.T</p>
+            <p class="copyright">© 2026 Create By <strong>【 Sam.T 】</strong></p>
+            <p class="rights">Copyright © 2026 Sam.T. All rights reserved.</p>
+            <p class="rights">版權所有© 2026 Sam.T</p>
             <p class="warning">
-                此平台已受版權所有，所有內容均為Sam.T的知識產權。
-                除非已獲得擁有者明確書面同意，否則不得以任何形式複製、轉載、修改或使用本網站任何內容。
+                此平台已受版權所有，除非已經獲得擁有者明確同意，否則則不得以任何形式作出修改或其他抄襲行為。
             </p>
         </footer>
     </div>
 
     <style>
         /* 為每個卡片設置不同的背景圖像 - 根據主題選擇相關圖片 */
+        .card-14::before { 
+            background-image: url('https://images.unsplash.com/photo-1534419450760-729e14c6cbf6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 40%;
+        }
+        .card-15::before { 
+            background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 35%;
+        }
+        .card-13::before { 
+            background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 30%;
+        }
         .card-0::before { 
             background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
             background-position: center 30%;
