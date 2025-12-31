@@ -347,6 +347,19 @@
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
 
+        /* 警告樣式 - 用於測試版本 */
+        .card-warning {
+            font-size: 1rem;
+            color: #ffcccc;
+            padding: 15px 20px;
+            background: rgba(255, 50, 50, 0.15);
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 4px solid #ff5555;
+            line-height: 1.6;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
         /* 卡片按鈕 - 提升點擊性和快速性 */
         .card-button {
             display: block;
@@ -585,7 +598,7 @@
         <!-- 開發統計 -->
         <section class="stats-container">
             <div class="stat-box">
-                <div class="stat-number">16</div>
+                <div class="stat-number">19</div>
                 <div class="stat-label">總開發網頁</div>
                 <div class="stat-note">精心設計的完整項目集合</div>
             </div>
@@ -597,7 +610,7 @@
             </div>
             
             <div class="stat-box">
-                <div class="stat-number">7</div>
+                <div class="stat-number">10</div>
                 <div class="stat-label">未完成開發</div>
                 <div class="stat-note">開發設計進行中項目</div>
             </div>
@@ -605,6 +618,84 @@
         
         <!-- 作品集網格 -->
         <main class="portfolio-grid">
+            <!-- 物聯網智慧城市模擬器 -->
+            <div class="portfolio-card card-new-1">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-city"></i>
+                        </div>
+                        <span class="card-status updating">未完成開發</span>
+                    </div>
+                    
+                    <h3 class="card-title">物聯網智慧城市模擬器</h3>
+                    
+                    <p class="card-description">
+                        先進的物聯網智慧城市模擬平台，展示未來城市的智能基礎設施與互聯設備網絡。平台模擬智慧交通、能源管理、環境監測、公共安全等系統，讓用戶體驗物聯網技術如何優化城市運營與市民生活。
+                    </p>
+                    
+                    <div class="card-note">
+                        備註：包含實時數據可視化、設備互聯模擬、系統集成控制面板與城市管理決策支持。展示物聯網技術在城市規劃、資源分配與可持續發展中的應用。
+                    </div>
+                    
+                    <a href="https://smart-city-web.vercel.app/" target="_blank" class="card-button">
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 古代及現代雙向語言文字翻譯系統 - 測試版本 -->
+            <div class="portfolio-card card-new-2">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <span class="card-status updating">未完成開發</span>
+                    </div>
+                    
+                    <h3 class="card-title">古代及現代雙向語言文字翻譯系統 - 測試版本</h3>
+                    
+                    <p class="card-description">
+                        突破性的跨時代語言翻譯平台，實現古代語言與現代語言之間的雙向轉換。系統支援多種古代文字與現代語言的互譯，包括甲骨文、金文、篆書與現代中文、英文等，提供文化傳承與語言學習的全新體驗。
+                    </p>
+                    
+                    <div class="card-warning">
+                        ⚠️ 警告：這是測試版本，仍然正在開發當中！現時翻譯的結果是不準確的，不能夠正常地運作使用翻譯。請勿依賴此系統進行正式的翻譯工作。
+                    </div>
+                    
+                    <a href="https://ancient-modern-translation-online.vercel.app/" target="_blank" class="card-button">
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- 建造屬於自己的VPN - 模擬遊戲 -->
+            <div class="portfolio-card card-new-3">
+                <div class="card-content">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <span class="card-status updating">未完成開發</span>
+                    </div>
+                    
+                    <h3 class="card-title">建造屬於自己的VPN - 模擬遊戲</h3>
+                    
+                    <p class="card-description">
+                        虛擬專用網絡建造模擬遊戲，引導用戶學習VPN技術原理與實踐操作。遊戲化學習過程讓用戶從零開始構建虛擬網絡，理解加密隧道、協議選擇、服務器配置等關鍵概念，掌握網絡隱私保護與安全連接的核心技能。
+                    </p>
+                    
+                    <div class="card-note">
+                        備註：包含虛擬網絡拓撲設計、加密協議選擇、服務器配置挑戰與網絡安全測試。提供逐步指導與即時反饋，適合網絡安全初學者與VPN技術愛好者。
+                    </div>
+                    
+                    <a href="https://vpn-simulator-game-web.vercel.app/" target="_blank" class="card-button">
+                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+            
             <!-- 香港時空記憶之旅-探索香港各文化特色猜謎遊戲 -->
             <div class="portfolio-card card-14">
                 <div class="card-content">
@@ -1062,6 +1153,18 @@
 
     <style>
         /* 為每個卡片設置不同的背景圖像 - 根據主題選擇相關圖片 */
+        .card-new-1::before { 
+            background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 30%;
+        }
+        .card-new-2::before { 
+            background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 40%;
+        }
+        .card-new-3::before { 
+            background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 35%;
+        }
         .card-14::before { 
             background-image: url('https://images.unsplash.com/photo-1534419450760-729e14c6cbf6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
             background-position: center 40%;
