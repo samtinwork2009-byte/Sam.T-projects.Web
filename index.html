@@ -326,6 +326,15 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
         }
 
+        .card-subtitle {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
         .card-description {
             color: #e8f0ff;
             font-size: 1.1rem;
@@ -360,17 +369,17 @@
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
 
-        /* 卡片按鈕 - 提升點擊性和快速性 */
+        /* 卡片按鈕 - 優化點擊速度和UI */
         .card-button {
             display: block;
             padding: 18px 30px;
-            background: rgba(43, 108, 255, 0.25);
-            color: var(--primary-light);
+            background: linear-gradient(90deg, rgba(43, 108, 255, 0.3), rgba(64, 156, 255, 0.25));
+            color: var(--light);
             text-decoration: none;
             border-radius: 12px;
             font-weight: 700;
             text-align: center;
-            transition: all 0.2s ease;
+            transition: all 0.15s ease; /* 更快的過渡效果 */
             border: 2px solid rgba(64, 156, 255, 0.45);
             cursor: pointer;
             width: 100%;
@@ -391,15 +400,15 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s ease;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.4s ease;
         }
 
         .card-button:hover {
-            background: rgba(43, 108, 255, 0.35);
+            background: linear-gradient(90deg, rgba(43, 108, 255, 0.4), rgba(64, 156, 255, 0.35));
             color: var(--secondary);
             border-color: rgba(64, 156, 255, 0.65);
-            transform: translateY(-4px);
+            transform: translateY(-4px) scale(1.02); /* 添加縮放效果 */
             box-shadow: 0 10px 25px rgba(41, 103, 255, 0.35);
         }
 
@@ -408,14 +417,46 @@
         }
 
         .card-button:active {
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(0.98); /* 點擊時的反饋 */
             box-shadow: 0 5px 15px rgba(41, 103, 255, 0.3);
-            transition: all 0.1s ease;
+            transition: all 0.08s ease; /* 更快的點擊過渡 */
+            background: linear-gradient(90deg, rgba(43, 108, 255, 0.35), rgba(64, 156, 255, 0.3));
         }
 
         .card-button i {
             margin-left: 10px;
             font-size: 0.9em;
+            transition: transform 0.2s ease;
+        }
+
+        .card-button:hover i {
+            transform: translateX(3px);
+        }
+
+        /* 快速訪問指示器 */
+        .fast-access {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 212, 255, 0.2);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: 1.2rem;
+            z-index: 10;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .portfolio-card:hover .fast-access {
+            opacity: 1;
+            transform: scale(1);
         }
 
         /* 已完成開發的額外說明 */
@@ -520,6 +561,10 @@
                 font-size: 1.8rem;
             }
             
+            .card-subtitle {
+                font-size: 1.3rem;
+            }
+            
             .card-description {
                 font-size: 1.05rem;
             }
@@ -530,6 +575,12 @@
             
             .portfolio-card::before {
                 opacity: 0.35; /* 移動端適當降低透明度 */
+            }
+            
+            .fast-access {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
             }
         }
 
@@ -564,6 +615,10 @@
                 font-size: 1.7rem;
             }
             
+            .card-subtitle {
+                font-size: 1.2rem;
+            }
+            
             .card-description {
                 font-size: 1rem;
             }
@@ -571,6 +626,12 @@
             .card-button {
                 padding: 15px 20px;
                 font-size: 1rem;
+            }
+            
+            .fast-access {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -619,11 +680,12 @@
         <!-- 作品集網格 -->
         <main class="portfolio-grid">
 
-
-
- <!-- 黑客 vs 執法部門 網絡大戰場 第二季 -->
+            <!-- 黑客 vs 執法部門 網絡大戰場 第二季 -->
             <div class="portfolio-card card-9">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-user-secret"></i>
@@ -631,12 +693,11 @@
                         <span class="card-status updating">未完成開發</span>
                     </div>
                     
-                    <h3 class="card-title">黑客 vs 執法部門 
-                        <h2 class="card-title">網絡大戰場 第二季 SEASON 2 </h2>
-
+                    <h3 class="card-title">黑客 vs 執法部門</h3>
+                    <h4 class="card-subtitle">網絡大戰場 第二季 SEASON 2</h4>
                     
                     <p class="card-description">
-                      這是一個黑客與執法部門對抗的沉浸式體驗。用戶可以選擇扮演黑客或執法人員，
+                        這是一個黑客與執法部門對抗的沉浸式體驗。用戶可以選擇扮演黑客或執法人員，
                         在模擬的網絡環境中進行攻防對決，學習真實世界中的網絡安全策略與技術。
                     </p>
                     
@@ -645,15 +706,17 @@
                     </div>
                     
                     <a href="https://hacked-security2.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
-
-
+            </div>
 
             <!-- 黑客 vs 防禦者攻擊模擬器 -->
             <div class="portfolio-card card-5">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-shield-alt"></i>
@@ -673,15 +736,17 @@
                     </div>
                     
                     <a href="https://hacked-security-online.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
 
-
- <!-- 資料庫Database模擬器 -->
+            <!-- 資料庫Database模擬器 -->
             <div class="portfolio-card card-9">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-database"></i>
@@ -702,15 +767,17 @@
                     </div>
                     
                     <a href="https://data-base-simulator.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
 
-
- <!-- 編程語言前端後端及API -->
+            <!-- 編程語言前端後端及API -->
             <div class="portfolio-card card-8">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-code"></i>
@@ -718,28 +785,29 @@
                         <span class="card-status">已完成開發</span>
                     </div>
                     
-                    <h3 class="card-title">編程語言模擬器 </h3>
+                    <h3 class="card-title">編程語言模擬器</h3>
                     
                     <p class="card-description">
-                      涵蓋前端、後端編程語言與API開發的綜合教學環境。平台提供HTML/CSS/JavaScript、
+                        涵蓋前端、後端編程語言與API開發的綜合教學環境。平台提供HTML/CSS/JavaScript、
                         Python、Node.js等多種語言的在線編輯器，並支援API模擬與GitHub集成，實現完整的開發流程體驗。
                     </p>
                     
                     <div class="card-note">
                         備註：提供即時代碼執行與調試環境，API設計與測試工具，支援Git版本控制操作模擬。
-                       
                     </div>
                     
                     <a href="https://learn-code-simulator.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
 
-
-  <!-- 後端編程模擬學習平台 -->
+            <!-- 後端編程模擬學習平台 -->
             <div class="portfolio-card card-0">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-server"></i>
@@ -760,15 +828,17 @@
                     </div>
                     
                     <a href="https://programming-backend-online.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
 
-
             <!-- 建造屬於自己的VPN - 模擬遊戲 -->
             <div class="portfolio-card card-new-3">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-user-shield"></i>
@@ -787,16 +857,17 @@
                     </div>
                     
                     <a href="https://vpn-simulator-game-web.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
 
-
- 
             <!-- 網絡接駁及相關Network模擬器 -->
             <div class="portfolio-card card-6">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-network-wired"></i>
@@ -813,11 +884,10 @@
                     
                     <div class="card-note">
                         備註：支援LAN、WAN、VPN等多種網絡類型模擬，提供可視化的網絡流量監控與故障排查工具。
-                     
                     </div>
                     
                     <a href="https://network-internet-online.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
@@ -825,6 +895,9 @@
             <!-- 電腦命令執行模擬器 -->
             <div class="portfolio-card card-7">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-terminal"></i>
@@ -845,15 +918,17 @@
                     </div>
                     
                     <a href="https://computer-simulator.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
 
-
- <!-- 真 • 香港達人挑戰及問答遊戲 -->
+            <!-- 真 • 香港達人挑戰及問答遊戲 -->
             <div class="portfolio-card card-10">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-gamepad"></i>
@@ -873,14 +948,17 @@
                     </div>
                     
                     <a href="https://hong-kong-quiz-game.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
 
-<!-- 手機系統越獄模擬器平台 -->
+            <!-- 手機系統越獄模擬器平台 -->
             <div class="portfolio-card card-13">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-mobile-alt"></i>
@@ -897,18 +975,20 @@
                     
                     <div class="card-note">
                         備註：平台包含多種越獄工具模擬、系統漏洞展示、權限提升實驗及安全加固教學。
-                    
                     </div>
                     
                     <a href="https://jailbreak-phone.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
 
- <!-- 播客與多媒體製作模擬平台 -->
+            <!-- 播客與多媒體製作模擬平台 -->
             <div class="portfolio-card card-4">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-podcast"></i>
@@ -925,28 +1005,20 @@
                     
                     <div class="card-note">
                         備註：平台提供多種媒體格式支援，包括MP3、MP4、WAV等，並內置專業級編輯工具與效果庫。
-                       
                     </div>
                     
                     <a href="https://broadcast-mediasimulator.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
             <!-- 物聯網智慧城市模擬器 -->
             <div class="portfolio-card card-new-1">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-city"></i>
@@ -965,7 +1037,7 @@
                     </div>
                     
                     <a href="https://smart-city-web.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
@@ -973,6 +1045,9 @@
             <!-- 古代及現代雙向語言文字翻譯系統 - 測試版本 -->
             <div class="portfolio-card card-new-2">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-language"></i>
@@ -991,16 +1066,17 @@
                     </div>
                     
                     <a href="https://ancient-modern-translation-online.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
             
-
-            
             <!-- 香港時空記憶之旅-探索香港各文化特色猜謎遊戲 -->
             <div class="portfolio-card card-14">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-question-circle"></i>
@@ -1019,7 +1095,7 @@
                     </div>
                     
                     <a href="https://hong-kong-game-online-web.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
@@ -1027,6 +1103,9 @@
             <!-- 懷舊通訊裝置時光機-模擬器 -->
             <div class="portfolio-card card-15">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-phone-alt"></i>
@@ -1045,18 +1124,17 @@
                     </div>
                     
                     <a href="https://telecom-device-simulator.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
             
-            
-            
-          
-            
             <!-- 香港昔日懷舊歷史文化模擬平台 -->
             <div class="portfolio-card card-1">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-landmark"></i>
@@ -1077,7 +1155,7 @@
                     </div>
                     
                     <a href="https://nostalgic-hong-kong.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
@@ -1085,6 +1163,9 @@
             <!-- 澳門豪華博彩娛樂模擬遊戲 -->
             <div class="portfolio-card card-2">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-dice"></i>
@@ -1105,7 +1186,7 @@
                     </div>
                     
                     <a href="https://gambling-in-macauonline.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
@@ -1113,6 +1194,9 @@
             <!-- 人工智能AI開發及訓練模擬平台 -->
             <div class="portfolio-card card-3">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-brain"></i>
@@ -1133,31 +1217,17 @@
                     </div>
                     
                     <a href="https://ai-training-online.vercel.app/" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
             
-           
-            
-           
-
-
-
-
-
-
-           
-            
-           
-            
-           
-            
-           
-            
             <!-- AI.Sam 智能助理聊天機械人 -->
             <div class="portfolio-card card-11">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-robot"></i>
@@ -1178,7 +1248,7 @@
                     </div>
                     
                     <a href="https://poe.com/AISam.GPT_Official" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
@@ -1186,6 +1256,9 @@
             <!-- Design Thinking AI 設計思維智能助理 -->
             <div class="portfolio-card card-12">
                 <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
                     <div class="card-header">
                         <div class="card-icon">
                             <i class="fas fa-lightbulb"></i>
@@ -1205,7 +1278,7 @@
                     </div>
                     
                     <a href="https://poe.com/Design_Think_AI" target="_blank" class="card-button">
-                        訪問平台 <i class="fas fa-external-link-alt"></i>
+                        快速訪問平台 <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             </div>
@@ -1336,20 +1409,66 @@
                 updatingStat.textContent = updatingCards;
             }
             
-            // 提高按鈕點擊性 - 添加點擊反饋
+            // 優化按鈕點擊性 - 添加快速點擊反饋
             const buttons = document.querySelectorAll('.card-button');
             buttons.forEach(button => {
+                // 預加載連結頁面
+                const link = button.href;
+                if (link && !link.includes('#')) {
+                    const prefetchLink = document.createElement('link');
+                    prefetchLink.rel = 'prefetch';
+                    prefetchLink.href = link;
+                    document.head.appendChild(prefetchLink);
+                }
+                
                 button.addEventListener('mousedown', function() {
                     this.style.transform = 'translateY(-1px) scale(0.98)';
                 });
                 
                 button.addEventListener('mouseup', function() {
-                    this.style.transform = 'translateY(-4px)';
+                    this.style.transform = 'translateY(-4px) scale(1.02)';
                 });
                 
                 button.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
+                    this.style.transform = 'translateY(0) scale(1)';
                 });
+            });
+            
+            // 快速訪問指示器點擊功能
+            const fastAccessIndicators = document.querySelectorAll('.fast-access');
+            fastAccessIndicators.forEach(indicator => {
+                indicator.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const card = this.closest('.portfolio-card');
+                    const button = card.querySelector('.card-button');
+                    if (button && button.href) {
+                        // 添加點擊動畫
+                        this.style.transform = 'scale(1.2)';
+                        this.style.backgroundColor = 'rgba(0, 212, 255, 0.4)';
+                        
+                        setTimeout(() => {
+                            window.open(button.href, '_blank');
+                            this.style.transform = 'scale(1)';
+                            this.style.backgroundColor = 'rgba(0, 212, 255, 0.2)';
+                        }, 150);
+                    }
+                });
+            });
+            
+            // 添加鍵盤快捷鍵支持
+            document.addEventListener('keydown', function(e) {
+                // Alt + 數字鍵快速訪問卡片
+                if (e.altKey && e.key >= '1' && e.key <= '9') {
+                    const index = parseInt(e.key) - 1;
+                    const cards = document.querySelectorAll('.portfolio-card');
+                    if (cards[index]) {
+                        const button = cards[index].querySelector('.card-button');
+                        if (button && button.href) {
+                            window.open(button.href, '_blank');
+                        }
+                    }
+                }
             });
         });
     </script>
