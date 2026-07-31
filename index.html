@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sam.T 個人作品集</title>
+    <title>Sam.T Project DevPortfolio Showcase</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,135 +48,356 @@
             padding: 0 20px;
         }
 
-        /* 頂部科技圖標和標題 */
-        .tech-header {
-            text-align: center;
-            padding: 50px 0 40px;
-            position: relative;
-            margin-bottom: 30px;
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0 10px;
+            gap: 16px;
         }
 
-        .tech-icons {
+        .brand {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
+            align-items: center;
+            gap: 14px;
+            font-family: var(--font-title);
+            font-size: 1.3rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--light);
+        }
+
+        .brand span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
             flex-wrap: wrap;
         }
 
-        .tech-icon {
-            font-size: 2.5rem;
-            color: var(--primary-light);
-            transition: all 0.3s ease;
-            padding: 15px;
-            border-radius: 12px;
-            background: rgba(41, 103, 255, 0.1);
+        .nav-links a {
+            color: rgba(224, 224, 255, 0.75);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
 
-        .tech-icon:hover {
+        .nav-links a:hover {
             color: var(--secondary);
-            transform: translateY(-5px);
-            background: rgba(41, 103, 255, 0.2);
         }
 
-        .main-title {
+        .lang-switch {
+            display: inline-flex;
+            gap: 10px;
+        }
+
+        .lang-switch button {
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.04);
+            color: rgba(224, 224, 255, 0.85);
+            font-size: 0.92rem;
+            padding: 10px 14px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-switch button.active,
+        .lang-switch button:hover {
+            background: rgba(0, 212, 255, 0.16);
+            border-color: rgba(0, 212, 255, 0.35);
+            color: var(--secondary);
+        }
+
+        /* 英雄區與頁首 */
+        .hero-section {
+            text-align: center;
+            padding: 80px 0 40px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            border-radius: 999px;
+            background: rgba(0, 212, 255, 0.12);
+            color: var(--secondary);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin-bottom: 26px;
+            font-size: 0.95rem;
+        }
+
+        .hero-title {
             font-family: var(--font-title);
-            font-size: 3.8rem;
+            font-size: clamp(3rem, 5vw, 5rem);
             background: linear-gradient(90deg, var(--primary-light), var(--secondary), var(--primary-light));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
+            margin: 0 auto 18px;
+            letter-spacing: 0.05em;
+            max-width: 900px;
+        }
+
+        .hero-subtitle {
+            color: var(--gray);
+            font-size: 1.15rem;
+            max-width: 860px;
+            margin: 0 auto 36px;
+            line-height: 1.75;
+        }
+
+        .hero-actions {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        .hero-actions a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 26px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            color: var(--light);
+            border: 1px solid rgba(64, 156, 255, 0.3);
+            transition: all 0.25s ease;
+        }
+
+        .hero-actions a.primary {
+            background: linear-gradient(90deg, rgba(43, 108, 255, 0.95), rgba(0, 212, 255, 0.9));
+            box-shadow: 0 16px 30px rgba(0, 212, 255, 0.18);
+        }
+
+        .hero-actions a.secondary {
+            background: transparent;
+            color: rgba(224, 224, 255, 0.92);
+        }
+
+        .hero-actions a:hover {
+            transform: translateY(-2px);
+        }
+
+        .section-heading {
             position: relative;
-            display: inline-block;
-            background-size: 200% auto;
-            animation: gradient 5s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 28px;
+            padding: 24px 28px;
+            border-radius: 24px;
+            background: rgba(12, 18, 32, 0.86);
+            border: 1px solid rgba(64, 156, 255, 0.18);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(14px);
         }
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .main-title::after {
+        .section-heading::before {
             content: '';
             position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 250px;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
-            border-radius: 2px;
+            border-radius: 24px 24px 0 0;
+            background: linear-gradient(90deg, rgba(43, 108, 255, 0.95), rgba(0, 212, 255, 0.85));
         }
 
-        .intro {
-            font-size: 1.25rem;
+        .section-heading h2 {
+            font-family: var(--font-title);
+            font-size: 2.4rem;
+            color: var(--light);
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-heading p {
             color: var(--gray);
-            max-width: 850px;
-            margin: 30px auto 40px;
-            line-height: 1.8;
-            padding: 0 20px;
+            font-size: 0.96rem;
+            max-width: 600px;
+            margin: 0;
         }
 
-        /* 開發統計 */
         .stats-container {
             display: flex;
             justify-content: center;
-            gap: 50px;
-            margin: 50px 0 60px;
+            gap: 30px;
+            margin: 30px 0 55px;
             flex-wrap: wrap;
         }
 
-        .stat-box {
-            background: linear-gradient(145deg, rgba(20, 30, 60, 0.9), rgba(10, 20, 40, 0.95));
-            border-radius: 16px;
-            padding: 30px 35px;
-            min-width: 240px;
-            text-align: center;
-            border: 1px solid rgba(64, 156, 255, 0.25);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0 10px;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
-        .stat-box:hover {
-            transform: translateY(-8px);
-            border-color: rgba(64, 156, 255, 0.4);
-            box-shadow: 0 12px 25px rgba(41, 103, 255, 0.25);
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 36px;
+            margin-bottom: 70px;
+            counter-reset: project;
         }
 
-        .stat-number {
-            font-family: var(--font-title);
-            font-size: 3.5rem;
+        .portfolio-card {
+            counter-increment: project;
+        }
+
+        .project-index {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            z-index: 3;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(0, 212, 255, 0.18);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: var(--light);
             font-weight: 700;
-            background: linear-gradient(90deg, var(--primary-light), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 1.2rem;
-            color: var(--gray);
-            font-weight: 500;
-        }
-
-        .stat-note {
             font-size: 0.95rem;
-            color: #a0a8d6;
-            margin-top: 10px;
+            letter-spacing: 0.15em;
+            transform: translateZ(0);
         }
+
+        .project-index::before {
+            content: counter(project, decimal-leading-zero);
+        }
+
+        .card-16 .project-index {
+            display: none;
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            z-index: 4;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            letter-spacing: 0.16em;
+            color: var(--light);
+            background: rgba(0, 212, 255, 0.14);
+            border: 1px solid rgba(0, 212, 255, 0.28);
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+        }
+
+        .projects-panel {
+            position: relative;
+            padding: 40px 0 20px;
+            margin-bottom: 60px;
+        }
+
+        .projects-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(0, 212, 255, 0.12), transparent 28%),
+                        radial-gradient(circle at bottom right, rgba(75, 193, 255, 0.12), transparent 24%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .projects-panel .section-heading,
+        .projects-panel .portfolio-grid {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 32px;
+            margin-bottom: 48px;
+            align-items: start;
+        }
+
+        .about-panel {
+            background: rgba(8, 13, 24, 0.88);
+            border: 1px solid rgba(64, 156, 255, 0.18);
+            border-radius: 24px;
+            padding: 36px;
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(16px);
+        }
+
+        .about-panel h2 {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            margin-bottom: 18px;
+            color: var(--light);
+        }
+
+        .about-panel p {
+            color: rgba(224, 224, 255, 0.88);
+            font-size: 1rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+        }
+
+        .about-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .lang-switch button {
+            min-width: 55px;
+            text-align: center;
+        }
+
+        .lang-switch button.active {
+            background: linear-gradient(90deg, rgba(43, 108, 255, 0.95), rgba(0, 212, 255, 0.9));
+            color: #081124;
+        }
+
+        .about-feature {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 16px;
+            border-radius: 16px;
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.12);
+            color: rgba(224, 224, 255, 0.9);
+            font-size: 0.95rem;
+        }
+
 
         /* 作品集網格 - 桌面版一行三個 */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            gap: 36px;
             margin-bottom: 70px;
+            counter-reset: project;
         }
 
         @media (max-width: 1100px) {
@@ -195,34 +416,21 @@
 
         /* 作品卡片 - 增強外框漸變效果 */
         .portfolio-card {
-            border-radius: 18px;
-            padding: 35px;
-            transition: all 0.4s ease;
+            border-radius: 24px;
+            padding: 32px;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            height: 100%;
-            min-height: 450px;
+            min-height: 440px;
             z-index: 1;
-            background: linear-gradient(145deg, 
-                rgba(15, 22, 40, 0.7) 0%, 
-                rgba(20, 30, 55, 0.75) 100%);
-            
-            /* 新增外框漸變效果 - 低調現代科技感 */
-            border: double 2px transparent;
-            background-origin: border-box;
-            background-clip: padding-box, border-box;
-            background-image: 
-                linear-gradient(145deg, rgba(15, 22, 40, 0.7) 0%, rgba(20, 30, 55, 0.75) 100%),
-                linear-gradient(145deg, rgba(43, 108, 255, 0.2), rgba(0, 212, 255, 0.1), rgba(43, 108, 255, 0.2));
-            box-shadow: 
-                0 8px 20px rgba(0, 0, 0, 0.25),
-                0 0 20px rgba(43, 108, 255, 0.05),
-                inset 0 0 20px rgba(0, 212, 255, 0.03);
+            background: rgba(10, 14, 23, 0.82);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
         }
 
-        /* 背景圖像層 - 顯著提高透明度以增強顯示 */
         .portfolio-card::before {
             content: '';
             position: absolute;
@@ -232,14 +440,13 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            opacity: 0.4; /* 顯著提高透明度以增強圖像可見性 */
+            opacity: 0.32;
             z-index: -1;
-            transition: opacity 0.5s ease;
-            filter: brightness(0.7) contrast(1.1) saturate(1);
+            filter: brightness(0.58) contrast(1.05) saturate(1.1);
             background-blend-mode: overlay;
+            transition: opacity 0.45s ease, transform 0.45s ease;
         }
 
-        /* 優化深色覆蓋層 - 降低不透明度以更好地顯示背景圖像 */
         .portfolio-card::after {
             content: '';
             position: absolute;
@@ -247,26 +454,19 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(145deg, 
-                rgba(10, 15, 30, 0.45) 0%, 
-                rgba(15, 22, 45, 0.5) 100%);
+            background: linear-gradient(180deg, rgba(10, 14, 23, 0.28), rgba(5, 10, 20, 0.85));
             z-index: -1;
-        }
-
-        .portfolio-card:hover::before {
-            opacity: 0.5; /* 懸停時進一步增加透明度 */
-            filter: brightness(0.75) contrast(1.15) saturate(1.1);
+            transition: background 0.45s ease;
         }
 
         .portfolio-card:hover {
-            transform: translateY(-10px);
-            background-image: 
-                linear-gradient(145deg, rgba(15, 22, 40, 0.7) 0%, rgba(20, 30, 55, 0.75) 100%),
-                linear-gradient(145deg, rgba(43, 108, 255, 0.3), rgba(0, 212, 255, 0.15), rgba(43, 108, 255, 0.3));
-            box-shadow: 
-                0 15px 30px rgba(41, 103, 255, 0.25),
-                0 0 30px rgba(43, 108, 255, 0.1),
-                inset 0 0 25px rgba(0, 212, 255, 0.05);
+            transform: translateY(-12px);
+            box-shadow: 0 28px 65px rgba(0, 0, 0, 0.28);
+        }
+
+        .portfolio-card:hover::before {
+            opacity: 0.42;
+            transform: scale(1.03);
         }
 
         .card-content {
@@ -282,114 +482,122 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 25px;
+            margin-bottom: 24px;
+            gap: 12px;
         }
 
         .card-icon {
-            font-size: 3rem;
-            color: var(--primary-light);
-            padding: 15px;
-            border-radius: 14px;
-            background: rgba(41, 103, 255, 0.2);
-            width: 80px;
-            height: 80px;
+            font-size: 2.5rem;
+            color: var(--light);
+            padding: 16px;
+            border-radius: 18px;
+            background: rgba(0, 212, 255, 0.14);
+            width: 72px;
+            height: 72px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 15px rgba(41, 103, 255, 0.2);
+            box-shadow: 0 12px 25px rgba(0, 212, 255, 0.1);
         }
 
         .card-status {
-            display: inline-block;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            background: rgba(72, 187, 120, 0.25);
-            color: var(--success);
-            border: 1px solid rgba(72, 187, 120, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .card-status.updating {
-            background: rgba(255, 159, 67, 0.25);
+            background: rgba(255, 159, 67, 0.18);
             color: var(--warning);
-            border-color: rgba(255, 159, 67, 0.4);
+            border-color: rgba(255, 159, 67, 0.24);
+        }
+
+        .card-status::before {
+            content: '\2022';
+            margin-right: 8px;
+            color: currentColor;
+            font-size: 1.2rem;
+            line-height: 0;
         }
 
         /* 卡片主體 */
         .card-title {
             font-family: var(--font-title);
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 1.95rem;
+            margin-bottom: 12px;
             color: var(--light);
-            line-height: 1.3;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+            line-height: 1.2;
+            letter-spacing: 0.01em;
         }
 
         .card-subtitle {
             font-family: var(--font-title);
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--secondary);
-            line-height: 1.3;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+            font-size: 1.05rem;
+            margin-bottom: 22px;
+            color: rgba(224, 224, 255, 0.8);
+            line-height: 1.5;
+            letter-spacing: 0.02em;
         }
 
         .card-description {
-            color: #e8f0ff;
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            line-height: 1.7;
+            color: rgba(224, 224, 255, 0.9);
+            font-size: 1rem;
+            margin-bottom: 28px;
+            line-height: 1.75;
             flex-grow: 1;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        .card-note,
+        .card-warning {
+            font-size: 0.95rem;
+            padding: 16px 18px;
+            border-radius: 16px;
+            margin-bottom: 28px;
+            line-height: 1.65;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
         }
 
         .card-note {
-            font-size: 1rem;
-            color: #b0c0ff;
-            padding: 15px 20px;
-            background: rgba(41, 103, 255, 0.2);
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border-left: 4px solid var(--primary);
-            line-height: 1.6;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            color: #d7e5ff;
+            background: rgba(12, 25, 50, 0.6);
+            border-left: 4px solid rgba(43, 108, 255, 0.7);
         }
 
-        /* 警告樣式 - 用於測試版本 */
         .card-warning {
-            font-size: 1rem;
-            color: #ffcccc;
-            padding: 15px 20px;
-            background: rgba(255, 50, 50, 0.15);
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border-left: 4px solid #ff5555;
-            line-height: 1.6;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            color: #ffe5e5;
+            background: rgba(255, 80, 80, 0.14);
+            border-left: 4px solid rgba(255, 98, 98, 0.8);
         }
 
         /* 卡片按鈕 - 優化點擊速度和UI */
         .card-button {
-            display: block;
-            padding: 18px 30px;
-            background: linear-gradient(90deg, rgba(43, 108, 255, 0.3), rgba(64, 156, 255, 0.25));
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 24px;
+            background: linear-gradient(90deg, rgba(43, 108, 255, 0.9), rgba(0, 212, 255, 0.85));
             color: var(--light);
             text-decoration: none;
-            border-radius: 12px;
+            border-radius: 999px;
             font-weight: 700;
             text-align: center;
-            transition: all 0.15s ease; /* 更快的過渡效果 */
-            border: 2px solid rgba(64, 156, 255, 0.45);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            border: none;
             cursor: pointer;
-            width: 100%;
-            letter-spacing: 1.5px;
-            font-size: 1.1rem;
+            width: fit-content;
+            letter-spacing: 0.08em;
+            font-size: 0.98rem;
             margin-top: auto;
-            box-shadow: 0 6px 15px rgba(41, 103, 255, 0.25);
+            box-shadow: 0 16px 35px rgba(0, 212, 255, 0.16);
             position: relative;
             z-index: 3;
-            box-sizing: border-box;
             overflow: hidden;
         }
 
@@ -400,16 +608,14 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
             transition: left 0.4s ease;
         }
 
         .card-button:hover {
-            background: linear-gradient(90deg, rgba(43, 108, 255, 0.4), rgba(64, 156, 255, 0.35));
-            color: var(--secondary);
-            border-color: rgba(64, 156, 255, 0.65);
-            transform: translateY(-4px) scale(1.02); /* 添加縮放效果 */
-            box-shadow: 0 10px 25px rgba(41, 103, 255, 0.35);
+            transform: translateY(-2px);
+            background: linear-gradient(90deg, rgba(43, 108, 255, 1), rgba(0, 212, 255, 1));
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
         }
 
         .card-button:hover::before {
@@ -417,46 +623,50 @@
         }
 
         .card-button:active {
-            transform: translateY(-2px) scale(0.98); /* 點擊時的反饋 */
-            box-shadow: 0 5px 15px rgba(41, 103, 255, 0.3);
-            transition: all 0.08s ease; /* 更快的點擊過渡 */
-            background: linear-gradient(90deg, rgba(43, 108, 255, 0.35), rgba(64, 156, 255, 0.3));
+            transform: translateY(0);
+            box-shadow: 0 12px 24px rgba(0, 212, 255, 0.14);
+            transition-duration: 0.12s;
         }
 
         .card-button i {
             margin-left: 10px;
-            font-size: 0.9em;
+            opacity: 0.9;
             transition: transform 0.2s ease;
         }
 
         .card-button:hover i {
-            transform: translateX(3px);
+            transform: translateX(4px);
         }
 
         /* 快速訪問指示器 */
         .fast-access {
             position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0, 212, 255, 0.2);
+            top: 16px;
+            right: 16px;
+            background: rgba(0, 212, 255, 0.14);
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--secondary);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             z-index: 10;
             opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.3s ease;
-            border: 2px solid rgba(0, 212, 255, 0.3);
+            transform: translateY(-10px) scale(0.85);
+            transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+            border: 1px solid rgba(0, 212, 255, 0.25);
+            cursor: pointer;
         }
 
         .portfolio-card:hover .fast-access {
             opacity: 1;
-            transform: scale(1);
+            transform: translateY(0) scale(1);
+        }
+
+        .fast-access:hover {
+            background: rgba(0, 212, 255, 0.24);
         }
 
         /* 已完成開發的額外說明 */
@@ -497,34 +707,49 @@
             color: #8ca0ff;
         }
 
-        .warning {
-            font-size: 0.95rem;
-            color: #a0a8d6;
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(41, 103, 255, 0.1);
-            border-radius: 10px;
-            max-width: 750px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-
         /* 響應式設計 */
         @media (max-width: 1100px) {
             .portfolio-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+        @media (max-width: 900px) {
+            .hero-section {
+                padding: 60px 0 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 1.05rem;
+            }
+
+            .top-nav {
+                padding: 20px 0 10px;
+            }
+
+            .section-heading {
+                padding: 20px 22px;
+            }
+        }
 
         @media (max-width: 768px) {
-            .main-title {
-                font-size: 3rem;
+            .about-section {
+                grid-template-columns: 1fr;
             }
-            
-            .intro {
-                font-size: 1.15rem;
-                padding: 0 15px;
+
+            .about-panel {
+                padding: 28px;
+            }
+
+            .about-list {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                gap: 28px;
+            }
+
+            .hero-title {
+                font-size: 3rem;
             }
             
             .stats-container {
@@ -585,23 +810,6 @@
         }
 
         @media (max-width: 480px) {
-            .main-title {
-                font-size: 2.5rem;
-            }
-            
-            .tech-icons {
-                gap: 20px;
-            }
-            
-            .tech-icon {
-                font-size: 2rem;
-                padding: 12px;
-            }
-            
-            .intro {
-                font-size: 1.05rem;
-            }
-            
             .stat-box {
                 min-width: 100%;
             }
@@ -638,47 +846,74 @@
 </head>
 <body>
     <div class="container">
-        <!-- 頂部科技圖標和標題 -->
-        <header class="tech-header">
-            <div class="tech-icons">
-                <i class="tech-icon fas fa-microchip"></i>
-                <i class="tech-icon fas fa-code"></i>
-                <i class="tech-icon fas fa-network-wired"></i>
-                <i class="tech-icon fas fa-robot"></i>
-                <i class="tech-icon fas fa-database"></i>
-                <i class="tech-icon fas fa-shield-alt"></i>
+        <header class="top-nav">
+            <div class="brand">
+                <i class="fas fa-code"></i>
+                <span>Sam.T</span>
             </div>
-            
-            <h1 class="main-title">Sam.T 個人作品集</h1>
-            
-            <p class="intro">
-                這是Sam.T的個人作品集，包含各個類別，例如IT科技等等... 每個作品均為精心開發及設計的網頁，所有的網頁及網址已確保是安全的狀態，會不定期持續加入更多作品或優化及更新現有的網站效率。
-            </p>
+            <nav class="nav-links">
+                <a href="#projects" data-i18n-key="nav_projects">Projects</a>
+                <a href="#about" data-i18n-key="nav_about">About</a>
+                <a href="#contact" data-i18n-key="nav_contact">Contact</a>
+            </nav>
+            <div class="lang-switch">
+                <button class="active" data-lang="en">EN</button>
+                <button data-lang="zh">繁</button>
+            </div>
         </header>
-        
-        <!-- 開發統計 -->
-        <section class="stats-container">
-            <div class="stat-box">
-                <div class="stat-number">20</div>
-                <div class="stat-label">總開發網頁</div>
-                <div class="stat-note">精心設計的完整項目集合</div>
-            </div>
-            
-            <div class="stat-box">
-                <div class="stat-number">9</div>
-                <div class="stat-label">已完成開發</div>
-                <div class="stat-note">穩定運行並持續維護</div>
-            </div>
-            
-            <div class="stat-box">
-                <div class="stat-number">10</div>
-                <div class="stat-label">未完成開發</div>
-                <div class="stat-note">開發設計進行中項目</div>
+
+        <section class="hero-section">
+            <div class="hero-badge"><i class="fas fa-meteor"></i> <span data-i18n-key="hero_badge">HK AI & IT Portfolio</span></div>
+            <h1 class="hero-title" data-i18n-key="hero_title">Sam.T Project DevPortfolio Showcase</h1>
+            <p class="hero-subtitle" data-i18n-key="hero_subtitle">A Hong Kong-focused portfolio of real-time dashboards, intelligent tools, and enterprise-ready AI/IT products designed for clarity and impact.</p>
+            <div class="hero-actions">
+                <a href="#projects" class="primary" data-i18n-key="btn_projects">View Featured Projects</a>
+                <a href="#contact" class="secondary" data-i18n-key="btn_contact">Get In Touch</a>
             </div>
         </section>
         
-        <!-- 作品集網格 -->
-        <main class="portfolio-grid">
+       
+        
+        <section id="projects" class="projects-panel">
+            <div class="section-heading">
+                <h2 data-i18n-key="projects_title">Featured Projects</h2>
+
+            <main class="portfolio-grid">
+
+            <div class="portfolio-card card-16">
+                <div class="card-content">
+                    <span class="project-badge">TOP 1</span>
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <span class="card-status">Beta Live</span>
+                    </div>
+                    
+                    <h3 class="card-title">Sam.T</h3>
+                    <h4 class="card-subtitle">香港一站式實時儀表板平台</h4>
+                    <div class="card-tags">
+                        <span class="card-tag">Real-time</span>
+                        <span class="card-tag">Data Ops</span>
+                        <span class="card-tag">HK Insight</span>
+                    </div>
+                    <p class="card-description">
+                        一個專為香港打造的實時儀表板平台，整合交通、環境、城市運營與多維數據展示，
+                        提供即時洞察與專業監控介面，讓使用者快速掌握關鍵指標。
+                    </p>
+                    
+                    <div class="card-note">
+                        備註：專業科技感 UI 設計，具備儀表圖、趨勢分析、警報通知與跨區資料整合功能。
+                    </div>
+                    
+                    <a href="https://dashboard-hk-beta.vercel.app/" target="_blank" class="card-button">
+                        Launch Dashboard <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
 
             <!-- 黑客 vs 執法部門 網絡大戰場 第二季 -->
             <div class="portfolio-card card-9">
@@ -1282,16 +1517,48 @@
                     </a>
                 </div>
             </div>
+
+            <div class="portfolio-card card-16">
+                <div class="card-content">
+                    <div class="fast-access" title="快速訪問">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <span class="card-status">Beta Live</span>
+                    </div>
+                    
+                    <h3 class="card-title">Sam.T</h3>
+                    <h4 class="card-subtitle">香港一站式實時儀表板平台</h4>
+                    <div class="card-tags">
+                        <span class="card-tag">Real-time</span>
+                        <span class="card-tag">Data Ops</span>
+                        <span class="card-tag">HK Insight</span>
+                    </div>
+                    <p class="card-description">
+                        一個專為香港打造的實時儀表板平台，整合交通、環境、城市運營與多維數據展示，
+                        提供即時洞察與專業監控介面，讓使用者快速掌握關鍵指標。
+                    </p>
+                    
+                    <div class="card-note">
+                        備註：專業科技感 UI 設計，具備儀表圖、趨勢分析、警報通知與跨區資料整合功能。
+                    </div>
+                    
+                    <a href="https://dashboard-hk-beta.vercel.app/" target="_blank" class="card-button">
+                        Launch Dashboard <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
         </main>
+        </section>
         
         <!-- 頁腳版權聲明 -->
-        <footer class="footer">
+        <footer class="footer" id="contact">
             <p class="copyright">© 2026 Create By <strong>【 Sam.T 】</strong></p>
             <p class="rights">Copyright © 2026 Sam.T. All rights reserved.</p>
             <p class="rights">版權所有© 2026 Sam.T</p>
-            <p class="warning">
-                此平台已受版權所有，除非已經獲得擁有者明確同意，否則則不得以任何形式作出修改或其他抄襲行為。
-            </p>
         </footer>
     </div>
 
@@ -1343,8 +1610,16 @@
         }
         /* 黑客攻擊模擬器 - 使用戴帽黑客風格圖片 */
         .card-5::before { 
-            background-image: url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80'); 
             background-position: center 40%;
+            filter: brightness(0.45) contrast(1.3) saturate(1.2);
+            background-blend-mode: multiply;
+        }
+        .card-9::before { 
+            background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80'); 
+            background-position: center 30%;
+            filter: brightness(0.42) contrast(1.3) saturate(1.25);
+            background-blend-mode: multiply;
         }
         .card-6::before { 
             background-image: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
@@ -1358,10 +1633,6 @@
             background-image: url('https://images.unsplash.com/photo-1619410283995-43d9134e7656?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
             background-position: center 25%;
         }
-        .card-9::before { 
-            background-image: url('https://images.unsplash.com/photo-1548092372-0d1bd4088a6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
-            background-position: center 30%;
-        }
         .card-10::before { 
             background-image: url('https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
             background-position: center 35%;
@@ -1373,6 +1644,54 @@
         .card-12::before { 
             background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
             background-position: center 30%;
+        }
+        .card-16::before { 
+            background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); 
+            background-position: center 28%;
+            filter: brightness(0.54) contrast(1.1) saturate(1.1);
+        }
+
+        .card-16 {
+            border: 1px solid rgba(0, 212, 255, 0.35);
+        }
+
+        .card-16 .card-status {
+            background: rgba(0, 212, 255, 0.16);
+            color: #b5f4ff;
+            border-color: rgba(0, 212, 255, 0.45);
+        }
+
+        .card-16 .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0 18px;
+        }
+
+        .card-16 .card-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            color: #c8f7ff;
+            background: rgba(1, 163, 255, 0.16);
+            border: 1px solid rgba(1, 163, 255, 0.22);
+        }
+
+        .card-16 .card-note {
+            background: rgba(0, 18, 37, 0.7);
+            border-left-color: rgba(0, 212, 255, 0.7);
+            color: #d9f9ff;
+        }
+
+        .card-16 .card-button {
+            background: linear-gradient(90deg, rgba(0, 212, 255, 0.95), rgba(19, 111, 226, 0.95));
+            box-shadow: 0 18px 40px rgba(0, 212, 255, 0.18);
+        }
+
+        .card-16 .card-button:hover {
+            background: linear-gradient(90deg, rgba(0, 232, 255, 1), rgba(59, 164, 255, 1));
         }
     </style>
 
@@ -1470,6 +1789,100 @@
                     }
                 }
             });
+
+            // 語言切換功能
+            const translations = {
+                en: {
+                    hero_badge: 'HK AI & IT Portfolio',
+                    hero_title: 'Sam.T Project DevPortfolio Showcase',
+                    hero_subtitle: 'A Hong Kong-focused portfolio of real-time dashboards, intelligent tools, and enterprise-ready AI/IT products designed for clarity and impact.',
+                    btn_projects: 'View Featured Projects',
+                    btn_contact: 'Get In Touch',
+                    nav_projects: 'Projects',
+                    nav_about: 'About',
+                    nav_contact: 'Contact',
+                    stats_total: 'Total Projects',
+                    stats_completed: 'Completed',
+                    stats_updating: 'In Development',
+                    about_title: 'About Sam.T',
+                    about_text: 'Sam.T creates professional AI & IT products for Hong Kong and global audiences, with a focus on real-time dashboards, immersive security tools, and intelligent workflow platforms.',
+                    about_feature_1: 'Real-time intelligence',
+                    about_feature_2: 'Enterprise security',
+                    about_feature_3: 'AI-driven logic',
+                    about_feature_4: 'HK-focused solutions',
+                    projects_title: 'Featured Projects',
+                    projects_description: 'Modern project cards with crisp visuals, descriptive details, and live links.',
+                    page_title: 'Sam.T Project DevPortfolio Showcase'
+                },
+                zh: {
+                    hero_badge: '香港 AI & IT 作品集',
+                    hero_title: 'Sam.T Project DevPortfolio Showcase',
+                    hero_subtitle: '一個專注香港的即時儀表板、智能工具與企業級 AI/IT 產品的作品集，兼具清晰與專業。',
+                    btn_projects: '查看特色專案',
+                    btn_contact: '聯繫我們',
+                    nav_projects: '專案',
+                    nav_about: '關於',
+                    nav_contact: '聯繫',
+                    stats_total: '專案總數',
+                    stats_completed: '已完成',
+                    stats_updating: '開發中',
+                    about_title: '關於 Sam.T',
+                    about_text: 'Sam.T 專注於為香港和全球客戶打造專業 AI 與 IT 產品，核心包括即時儀表板、沉浸式安全工具及智慧工作平台。',
+                    about_feature_1: '即時洞察',
+                    about_feature_2: '企業級安全',
+                    about_feature_3: 'AI 驅動',
+                    about_feature_4: '香港專屬方案',
+                    projects_title: '特色專案',
+                    projects_description: '現代化專案卡片，具備清晰視覺、詳盡描述與即時連結。',
+                    page_title: 'Sam.T Project DevPortfolio Showcase'
+            };
+
+            const switchLanguage = (lang) => {
+                document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
+                const items = document.querySelectorAll('[data-i18n-key]');
+                items.forEach(item => {
+                    const key = item.dataset.i18nKey;
+                    if (key && translations[lang] && translations[lang][key] !== undefined) {
+                        item.textContent = translations[lang][key];
+                    }
+                });
+
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    const key = link.dataset.i18nKey;
+                    if (key && translations[lang][key]) {
+                        link.textContent = translations[lang][key];
+                    }
+                });
+
+                const stats = document.querySelectorAll('.stat-box');
+                if (stats[0]) stats[0].querySelector('.stat-label').textContent = translations[lang].stats_total;
+                if (stats[1]) stats[1].querySelector('.stat-label').textContent = translations[lang].stats_completed;
+                if (stats[2]) stats[2].querySelector('.stat-label').textContent = translations[lang].stats_updating;
+
+                document.querySelectorAll('.lang-switch button').forEach(button => {
+                    button.classList.toggle('active', button.dataset.lang === lang);
+                });
+
+                if (translations[lang] && translations[lang].page_title) {
+                    document.title = translations[lang].page_title;
+                }
+            };
+
+            document.querySelectorAll('.portfolio-card:not(.card-16)').forEach(card => {
+                if (!card.querySelector('.project-index')) {
+                    const indexBadge = document.createElement('span');
+                    indexBadge.className = 'project-index';
+                    card.insertBefore(indexBadge, card.firstChild);
+                }
+            });
+
+            document.querySelectorAll('.lang-switch button').forEach(button => {
+                button.addEventListener('click', () => {
+                    switchLanguage(button.dataset.lang);
+                });
+            });
+
+            switchLanguage('en');
         });
     </script>
 </body>
